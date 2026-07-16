@@ -42,7 +42,7 @@ export default {
     const tableNumber = String(body.tableNumber || "").trim();
     const skinLabel = String(body.skinLabel || "").trim();
     const currentLang = String(body.currentLang || "").trim();
-    const isValid = tableNumber.length > 0 && tableNumber.length <= 50;
+    const isValid = /^\d+$/.test(tableNumber) && Number(tableNumber) >= 1 && tableNumber.length <= 10;
 
     if (!isValid) {
       return new Response(JSON.stringify({ error: "invalid_table_number" }), {
