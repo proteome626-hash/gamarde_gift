@@ -1,7 +1,7 @@
 // =========================================================
-// إعدادات بوت تيليجرام للربط المباشر (مؤقت)
-const BOT_TOKEN = "8685760864:AAHLn8_JX2UP2mHM2Q8ibWZc-2KF4PS2E2I";
-const CHAT_ID = "7678235952";
+// رابط Cloudflare Worker (الوسيط الآمن لإرسال الطلبات لتيليجرام)
+// استبدل هذا الرابط برابط الـ Worker الخاص بك (ولا تنسَ إضافة /order في النهاية إذا كان مبرمجاً كذلك)
+const WORKER_URL = "https://YOUR-WORKER-NAME.YOUR-SUBDOMAIN.workers.dev/order";
 
 // =========================================================
 // الترجمات
@@ -9,8 +9,8 @@ const CHAT_ID = "7678235952";
 const translations = {
   ar: {
     heroEyebrow: "هدية ليلة النهائي",
-    heroTitle: "هدية من غامارد<br>بمناسبة نهائي كأس العالم",
-    heroSub: "تابعنا على إنستقرام وافتح صندوق هديتك الطبيعية من غامارد — مقدمة لكم الليلة من <span class=\"restaurant-name-slot\">Gamarde IQ</span>",
+    heroTitle: "هدية من جامارد<br>بمناسبة نهائي كأس العالم",
+    heroSub: "تابعنا على إنستقرام وافتح صندوق هديتك الطبيعية من جامارد — مقدمة لكم الليلة من <span class=\"restaurant-name-slot\">Gamarde IQ</span>",
     step1: "شاهد الهدية",
     step2: "تابعنا بانستقرام",
     step3: "اكتب رقم طاولتك",
@@ -262,15 +262,14 @@ orderForm.addEventListener("submit", async (e) => {
 
   try {
     const skinLabel = translations[currentLang]['skin' + selectedSkinType.charAt(0).toUpperCase() + selectedSkinType.slice(1)];
-    const textMessage = `🎁 طلب هدية غامارد جديد!\n\n🪑 رقم الطاولة: ${tableNumber}\n🧴 نوع البشرة: ${skinLabel}\n🌐 اللغة المفضلة: ${currentLang.toUpperCase()}`;
-    const url = `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`;
     
-    const res = await fetch(url, {
+    const res = await fetch(WORKER_URL, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        chat_id: CHAT_ID,
-        text: textMessage,
+        tableNumber: tableNumber,
+        skinLabel: skinLabel,
+        currentLang: currentLang
       }),
     });
 

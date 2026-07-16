@@ -40,6 +40,8 @@ export default {
     }
 
     const tableNumber = String(body.tableNumber || "").trim();
+    const skinLabel = String(body.skinLabel || "").trim();
+    const currentLang = String(body.currentLang || "").trim();
     const isValid = /^[0-9]{1,3}$/.test(tableNumber) && Number(tableNumber) >= 1 && Number(tableNumber) <= 200;
 
     if (!isValid) {
@@ -52,8 +54,10 @@ export default {
     const time = new Date().toLocaleString("ar-IQ", { timeZone: "Asia/Baghdad" });
 
     const text =
-      `🎁 طلب هدية جديد — غامارد × مونديال 26\n` +
+      `🎁 طلب هدية جامارد جديد!\n\n` +
       `🪑 رقم الطاولة: ${tableNumber}\n` +
+      (skinLabel ? `🧴 نوع البشرة: ${skinLabel}\n` : '') +
+      (currentLang ? `🌐 اللغة المفضلة: ${currentLang.toUpperCase()}\n` : '') +
       `🕒 الوقت: ${time}`;
 
     const tgRes = await fetch(
