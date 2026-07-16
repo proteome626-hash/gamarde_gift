@@ -243,7 +243,7 @@ orderForm.addEventListener("submit", async (e) => {
   e.preventDefault();
 
   const tableNumber = tableInput.value.trim();
-  const isValidTable = tableNumber && Number(tableNumber) >= 1 && Number(tableNumber) <= 200;
+  const isValidTable = tableNumber.length > 0;
 
   if (!selectedSkinType || !isValidTable) {
     if (!selectedSkinType) {
