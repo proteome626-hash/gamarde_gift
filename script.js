@@ -9,8 +9,8 @@ const CHAT_ID = "7678235952";
 const translations = {
   ar: {
     heroEyebrow: "هدية ليلة النهائي",
-    heroTitle: "هدوء غامارد،<br>باحتفال الليلة الكبيرة",
-    heroSub: "تابعنا على انستقرام وافتح صندوق هديتك الطبيعية من غامارد — تقدّملك الليلة من <span class=\"restaurant-name-slot\">Gamarde IQ</span>",
+    heroTitle: "هدية من غامارد<br>بمناسبة نهائي كأس العالم",
+    heroSub: "تابعنا على إنستقرام وافتح صندوق هديتك الطبيعية من غامارد — مقدمة لكم الليلة من <span class=\"restaurant-name-slot\">Gamarde IQ</span>",
     step1: "شاهد الهدية",
     step2: "تابعنا بانستقرام",
     step3: "اكتب رقم طاولتك",
@@ -37,7 +37,7 @@ const translations = {
   },
   ku: {
     heroEyebrow: "دیاری شەوی کۆتایی",
-    heroTitle: "ئارامی گامارد،<br>لە ئاهەنگی شەوی گەورەدا",
+    heroTitle: "دیارییەک لە گاماردەوە<br>بە بۆنەی یاری کۆتایی جامی جیهانی",
     heroSub: "لە ئینستاگرام فۆڵۆومان بکە و سندووقی دیارییە سروشتییەکەت لە گاماردەوە بکەرەوە — ئەم شەوە لەلایەن <span class=\"restaurant-name-slot\">Gamarde IQ</span> پێشکەشت دەکرێت",
     step1: "دیارییەکە ببینە",
     step2: "فۆڵۆومان بکە لە ئینستاگرام",
@@ -65,7 +65,7 @@ const translations = {
   },
   en: {
     heroEyebrow: "Final Night Gift",
-    heroTitle: "Gamarde Serenity,<br>for the Big Night Celebration",
+    heroTitle: "A Gift from Gamarde<br>For the World Cup Final",
     heroSub: "Follow us on Instagram and unlock your natural gift from Gamarde — brought to you tonight by <span class=\"restaurant-name-slot\">Gamarde IQ</span>",
     step1: "View the Gift",
     step2: "Follow us on IG",
