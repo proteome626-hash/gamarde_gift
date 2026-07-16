@@ -1,7 +1,8 @@
 // =========================================================
-// رابط Cloudflare Worker (الوسيط الآمن لإرسال الطلبات لتيليجرام)
-// استبدل هذا الرابط برابط الـ Worker الخاص بك (ولا تنسَ إضافة /order في النهاية إذا كان مبرمجاً كذلك)
-const WORKER_URL = "https://YOUR-WORKER-NAME.YOUR-SUBDOMAIN.workers.dev/order";
+// إعدادات بوت تيليجرام للربط المباشر
+// تحذير: هذه الطريقة غير آمنة تماماً للمشاريع الحقيقية ولكنها ستعمل مباشرة بدون Cloudflare
+const BOT_TOKEN = "8685760864:AAHLn8_JX2UP2mHM2Q8ibWZc-2KF4PS2E2I";
+const CHAT_ID = "7678235952";
 
 // =========================================================
 // الترجمات
@@ -263,13 +264,15 @@ orderForm.addEventListener("submit", async (e) => {
   try {
     const skinLabel = translations[currentLang]['skin' + selectedSkinType.charAt(0).toUpperCase() + selectedSkinType.slice(1)];
     
-    const res = await fetch(WORKER_URL, {
+    const textMessage = `🎁 طلب هدية جامارد جديد!\n\n🪑 رقم الطاولة: ${tableNumber}\n🧴 نوع البشرة: ${skinLabel}\n🌐 اللغة المفضلة: ${currentLang.toUpperCase()}`;
+    const url = `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`;
+    
+    const res = await fetch(url, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        tableNumber: tableNumber,
-        skinLabel: skinLabel,
-        currentLang: currentLang
+        chat_id: CHAT_ID,
+        text: textMessage,
       }),
     });
 
