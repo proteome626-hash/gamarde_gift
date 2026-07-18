@@ -29,8 +29,8 @@ const translations = {
     errorTable: "فضلاً اكتب رقم طاولة صحيح",
     submitBtn: "إرسال الطلب",
     successMsg: "تم استلام طلبك! هديتك جاية على طاولتك.",
-    errorMsg: "صار في خلل بإرسال الطلب. جرّب مرة ثانية أو نادِ النادل مباشرة.",
-    retryBtn: "حاول مرة ثانية",
+    errorMsg: "حدث خلل أثناء إرسال الطلب. يرجى مناداة النادل مباشرة.",
+    retryBtn: "",
     footerText: "مقدمة من <span class=\"restaurant-name-slot\">Gamarde IQ</span> © 2026",
     placeholderTable: "12",
     alreadyOrderedMsg: "لقد قمت بطلب هديتك مسبقاً! نراكم في مناسبات قادمة.",
@@ -57,8 +57,8 @@ const translations = {
     errorTable: "تکایە ژمارەیەکی دروستی مێز بنووسە",
     submitBtn: "ناردنی داواکاری",
     successMsg: "داواکارییەکەت وەرگیرا! دیارییەکەت بەرەو مێزەکەت دێت.",
-    errorMsg: "کێشەیەک لە ناردنی داواکارییەکەدا ڕوویدا. دووبارە هەوڵ بدەرەوە یان ڕاستەوخۆ بانگی گارسۆن بکە.",
-    retryBtn: "دووبارە هەوڵ بدەرەوە",
+    errorMsg: "کێشەیەک لە ناردنی داواکارییەکەدا ڕوویدا. تکایە ڕاستەوخۆ بانگی گارسۆن بکە.",
+    retryBtn: "",
     footerText: "پێشکەشکراوە لەلایەن <span class=\"restaurant-name-slot\">Gamarde IQ</span> © 2026",
     placeholderTable: "12",
     alreadyOrderedMsg: "تۆ پێشتر دیارییەکەت داواکردووە! لە بۆنەکانی داهاتوودا دەتبینینەوە.",
@@ -85,8 +85,8 @@ const translations = {
     errorTable: "Please enter a valid table number",
     submitBtn: "Submit Order",
     successMsg: "Your order is received! Your gift is on its way.",
-    errorMsg: "There was an error submitting your order. Try again or call the waiter directly.",
-    retryBtn: "Try Again",
+    errorMsg: "There was an error submitting your order. Please call the waiter directly.",
+    retryBtn: "",
     footerText: "Presented by <span class=\"restaurant-name-slot\">Gamarde IQ</span> © 2026",
     placeholderTable: "12",
     alreadyOrderedMsg: "You have already requested your gift! See you in future events.",
@@ -114,7 +114,6 @@ const fieldError    = document.getElementById("fieldError");
 const submitBtn     = document.getElementById("submitBtn");
 const successState  = document.getElementById("successState");
 const errorState    = document.getElementById("errorState");
-const retryBtn      = document.getElementById("retryBtn");
 const alreadyOrderedState = document.getElementById("alreadyOrderedState");
 const steps         = document.querySelectorAll(".step");
 const skinCards     = document.querySelectorAll(".skin-type-card");
@@ -288,9 +287,4 @@ orderForm.addEventListener("submit", async (e) => {
     submitBtn.disabled = false;
     submitBtn.classList.remove("is-loading");
   }
-});
-
-retryBtn.addEventListener("click", () => {
-  errorState.hidden = true;
-  orderForm.requestSubmit();
 });

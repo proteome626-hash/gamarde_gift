@@ -1,6 +1,21 @@
 /* =========================================================
    Tokens - Clean Clinical Light Theme (Blue, White, Black)
    ========================================================= */
+@font-face {
+  font-family: 'NRT';
+  src: url('NRT-Reg.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'NRT';
+  src: url('NRT-Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
 :root {
   --bg-darker:    #f8fafc; /* Very light background */
   --bg-dark:      #ffffff; /* White cards */
@@ -14,8 +29,8 @@
   --glass-bg:     rgba(255, 255, 255, 0.95);
   --glass-border: rgba(15, 23, 42, 0.08);
 
-  --font-display: 'Amiri', 'Georgia', serif;
-  --font-body:    'Noto Sans Arabic', 'Segoe UI', sans-serif;
+  --font-display: 'NRT', 'Amiri', 'Georgia', serif;
+  --font-body:    'NRT', 'Noto Sans Arabic', 'Segoe UI', sans-serif;
 
   --radius-lg: 24px;
   --radius-md: 16px;
